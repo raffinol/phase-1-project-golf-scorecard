@@ -22,9 +22,14 @@ const holeSelection = (holes) => {
 strokesInput.addEventListener('submit', (e) => {
   e.preventDefault();
   const hole = holeDisplay.textContent;
+  const par = parDisplay.textContent;
+  //   console.log(par);
   const strokes = e.target[0].value;
+  //   console.log(strokes);
   table.rows[hole].cells[1].textContent = strokes;
-  //   if()
-
+  if (par === strokes) {
+    table.rows[hole].cells[2].textContent = 0;
+    table.rows[hole].cells[3].textContent = 'Par';
+  }
   document.querySelector('input.input-text').value = '';
 });
