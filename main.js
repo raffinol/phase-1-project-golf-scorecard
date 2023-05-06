@@ -6,7 +6,6 @@ fetch('http://localhost:3000/holes')
 
 const holeSelection = (holes) => {
   currentHole.addEventListener('change', (e) => {
-    // e.preventDefault();
     const holeSelection = parseInt(e.target.value);
     const holeObject = holes.find((hole) => hole.id === holeSelection);
     showHoleInfo(holeObject);
@@ -21,3 +20,9 @@ const showHoleInfo = (holeObject) => {
   parDisplay.textContent = holeObject.par;
   yardsDisplay.textContent = holeObject.yards;
 };
+
+const strokesInput = document.querySelector('form.input-trokes');
+strokesInput.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log(e.target[0].value);
+});
