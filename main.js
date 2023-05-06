@@ -27,9 +27,11 @@ strokesInput.addEventListener('submit', (e) => {
   const strokes = e.target[0].value;
   //   console.log(strokes);
   table.rows[hole].cells[1].textContent = strokes;
+  const scoreNumber = table.rows[hole].cells[2];
+  const score = table.rows[hole].cells[3];
   if (par === strokes) {
-    table.rows[hole].cells[2].textContent = 0;
-    table.rows[hole].cells[3].textContent = 'Par';
+    scoreNumber.textContent = 0;
+    score.textContent = 'Par';
   }
   document.querySelector('input.input-text').value = '';
 });
