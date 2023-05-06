@@ -26,3 +26,6 @@ strokesInput.addEventListener('submit', (e) => {
   e.preventDefault();
   console.log(e.target[0].value);
 });
+
+// const table = document.getElementById('table');
+// console.log(table.rows[0].cells[0]);
