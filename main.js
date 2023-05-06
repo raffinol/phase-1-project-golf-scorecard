@@ -4,3 +4,5 @@ currentHole.addEventListener('change', (e) => {
   e.preventDefault();
   console.log(e);
 });
+
+const showHoleInfo = (hole) => {};
