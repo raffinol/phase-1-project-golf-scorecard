@@ -1,15 +1,17 @@
 const currentHole = document.getElementById('holeSelect');
 
-currentHole.addEventListener('change', (e) => {
-  e.preventDefault();
-  const holeSelection = parseInt(e.target.value);
-  fetch('http://localhost:3000/holes')
-    .then((resp) => resp.json())
-    .then(function (holes) {
-      const holeObject = holes.find((hole) => hole.id === holeSelection);
-      showHoleInfo(holeObject);
-    });
-});
+fetch('http://localhost:3000/holes')
+  .then((resp) => resp.json())
+  .then((holes) => holeSelection(holes));
+
+const holeSelection = (holes) => {
+  currentHole.addEventListener('change', (e) => {
+    // e.preventDefault();
+    const holeSelection = parseInt(e.target.value);
+    const holeObject = holes.find((hole) => hole.id === holeSelection);
+    showHoleInfo(holeObject);
+  });
+};
 
 const showHoleInfo = (holeObject) => {
   const holeDisplay = document.querySelector('span#hole-display');
