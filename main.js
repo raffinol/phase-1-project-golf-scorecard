@@ -6,11 +6,16 @@ currentHole.addEventListener('change', (e) => {
   fetch('http://localhost:3000/holes')
     .then((resp) => resp.json())
     .then(function (holes) {
-      const hole = holes.find((hole) => hole.id === holeSelection);
-      showHoleInfo(hole);
+      const holeObject = holes.find((hole) => hole.id === holeSelection);
+      showHoleInfo(holeObject);
     });
 });
 
-const showHoleInfo = (hole) => {
-  console.log(hole);
+const showHoleInfo = (holeObject) => {
+  const holeDisplay = document.querySelector('span#hole-display');
+  const parDisplay = document.querySelector('span#par-display');
+  const yardsDisplay = document.querySelector('span#yards-display');
+  holeDisplay.textContent = holeObject.hole;
+  parDisplay.textContent = holeObject.par;
+  yardsDisplay.textContent = holeObject.yards;
 };
