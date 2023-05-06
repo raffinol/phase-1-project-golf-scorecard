@@ -24,4 +24,5 @@ strokesInput.addEventListener('submit', (e) => {
   const hole = holeDisplay.textContent;
   const strokes = e.target[0].value;
   table.rows[hole].cells[1].textContent = strokes;
+  document.querySelector('input.input-text').value = '';
 });
