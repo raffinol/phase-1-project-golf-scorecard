@@ -13,14 +13,10 @@ const holeSelection = (holes) => {
   currentHole.addEventListener('change', (e) => {
     const holeSelection = parseInt(e.target.value);
     const holeObject = holes.find((hole) => hole.id === holeSelection);
-    showHoleInfo(holeObject);
+    holeDisplay.textContent = holeObject.hole;
+    parDisplay.textContent = holeObject.par;
+    yardsDisplay.textContent = holeObject.yards;
   });
-};
-
-const showHoleInfo = (holeObject) => {
-  holeDisplay.textContent = holeObject.hole;
-  parDisplay.textContent = holeObject.par;
-  yardsDisplay.textContent = holeObject.yards;
 };
 
 strokesInput.addEventListener('submit', (e) => {
