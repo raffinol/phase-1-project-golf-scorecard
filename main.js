@@ -18,6 +18,9 @@ const holeSelection = (holes) => {
     yardsDisplay.textContent = holeObject.yards;
   });
 };
+
+const clearScorecard = () => {};
+
 strokesInput.addEventListener('submit', (e) => {
   e.preventDefault();
   const hole = holeDisplay.textContent;
@@ -78,5 +81,12 @@ strokesInput.addEventListener('submit', (e) => {
   document.querySelector('input.input-text').value = '';
 
   //clear all button
-  document.querySelector;
+});
+
+const button = document.getElementById('new-game');
+button.addEventListener('click', () => {
+  const scorecardData = document.getElementsByClassName('data');
+  for (const cell of scorecardData) {
+    cell.textContent = '';
+  }
 });
