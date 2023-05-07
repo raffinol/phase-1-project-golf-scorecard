@@ -18,7 +18,6 @@ const holeSelection = (holes) => {
     yardsDisplay.textContent = holeObject.yards;
   });
 };
-
 strokesInput.addEventListener('submit', (e) => {
   e.preventDefault();
   const hole = holeDisplay.textContent;
@@ -26,12 +25,18 @@ strokesInput.addEventListener('submit', (e) => {
   const strokes = parseInt(e.target[0].value);
   let scoreNumber = null;
   let score = null;
-  //Adds strokes to the scorecard
-  if (hole !== '') {
+  //Adds strokes to the scorecard, validates if 'hole' and 'strokes' have been input
+  if (hole === '') {
+    alert('Select a Hole first');
+  } else if (Number.isNaN(strokes)) {
+    alert('Input amount of strokes');
+  } else if (table.rows[hole].cells[1].textContent !== '') {
+    alert('Select another hole');
+  } else {
     scoreNumber = table.rows[hole].cells[2];
     score = table.rows[hole].cells[3];
     table.rows[hole].cells[1].textContent = strokes;
-  } else alert('Select a Hole first');
+  }
   //Always Score "Ace" if hole-in-one
   if (strokes === 1) {
     scoreNumber.textContent = `-${par - 1}`;
