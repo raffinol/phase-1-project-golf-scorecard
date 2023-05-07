@@ -23,11 +23,21 @@ strokesInput.addEventListener('submit', (e) => {
   e.preventDefault();
   const hole = holeDisplay.textContent;
   const par = parDisplay.textContent;
+  const parNum = parseInt(par);
   const strokes = e.target[0].value;
+  const strokesNum = parseInt(strokes);
+  console.log(strokesNum);
   table.rows[hole].cells[1].textContent = strokes;
   const scoreNumber = table.rows[hole].cells[2];
   const score = table.rows[hole].cells[3];
-  if (par === strokes) {
+
+  //Always Score "Ace" if hole-in-one
+  if (strokes === '1') {
+    scoreNumber.textContent = `-${parNum - 1}`;
+    score.textContent = 'Ace';
+  }
+  //Score depending on hole par
+  else if (par === strokes) {
     scoreNumber.textContent = 0;
     score.textContent = 'Par';
   } else if (par - strokes === 1) {
@@ -61,6 +71,5 @@ strokesInput.addEventListener('submit', (e) => {
     scoreNumber.textContent = '+5';
     score.textContent = 'Double Par';
   }
-
   document.querySelector('input.input-text').value = '';
 });
