@@ -26,7 +26,6 @@ strokesInput.addEventListener('submit', (e) => {
   const parNum = parseInt(par);
   const strokes = e.target[0].value;
   const strokesNum = parseInt(strokes);
-  console.log(strokesNum);
   table.rows[hole].cells[1].textContent = strokes;
   const scoreNumber = table.rows[hole].cells[2];
   const score = table.rows[hole].cells[3];
@@ -35,6 +34,11 @@ strokesInput.addEventListener('submit', (e) => {
   if (strokes === '1') {
     scoreNumber.textContent = `-${parNum - 1}`;
     score.textContent = 'Ace';
+  }
+  //Limits Score to double-par
+  else if (strokesNum >= parNum * 2) {
+    scoreNumber.textContent = parNum * 2;
+    score.textContent = 'Double Par';
   }
   //Score depending on hole par
   else if (par === strokes) {
@@ -64,12 +68,6 @@ strokesInput.addEventListener('submit', (e) => {
   } else if (par - strokes === -4) {
     scoreNumber.textContent = '+4';
     score.textContent = '+4';
-  } else if (par - strokes === -5) {
-    scoreNumber.textContent = '+5';
-    score.textContent = '+5';
-  } else if (par - strokes <= -6) {
-    scoreNumber.textContent = '+5';
-    score.textContent = 'Double Par';
   }
   document.querySelector('input.input-text').value = '';
 });
