@@ -25,13 +25,11 @@ strokesInput.addEventListener('submit', (e) => {
   const strokes = parseInt(e.target[0].value);
   let scoreNumber = null;
   let score = null;
-  //Adds strokes to the scorecard, validates if 'hole' and 'strokes' have been input
+  //Adds strokes to the scorecard, validates if 'hole' and 'strokes' have been input and no hole repetition
   if (hole === '') {
     alert('Select a Hole first');
   } else if (Number.isNaN(strokes)) {
     alert('Input amount of strokes');
-  } else if (table.rows[hole].cells[1].textContent !== '') {
-    alert('Select another hole');
   } else {
     scoreNumber = table.rows[hole].cells[2];
     score = table.rows[hole].cells[3];
@@ -78,4 +76,7 @@ strokesInput.addEventListener('submit', (e) => {
   }
   //Clears input text value after submit
   document.querySelector('input.input-text').value = '';
+
+  //clear all button
+  document.querySelector;
 });
