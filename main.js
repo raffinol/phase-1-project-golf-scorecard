@@ -18,26 +18,25 @@ const holeSelection = (holes) => {
     yardsDisplay.textContent = holeObject.yards;
   });
 };
-
+//test
 strokesInput.addEventListener('submit', (e) => {
   e.preventDefault();
   const hole = holeDisplay.textContent;
-  const par = parDisplay.textContent;
-  const parNum = parseInt(par);
-  const strokes = e.target[0].value;
-  const strokesNum = parseInt(strokes);
-  table.rows[hole].cells[1].textContent = strokes;
+  const par = parseInt(parDisplay.textContent);
+  const strokes = parseInt(e.target[0].value);
+
   const scoreNumber = table.rows[hole].cells[2];
   const score = table.rows[hole].cells[3];
-
+  //Adds strokes to the scorecard
+  table.rows[hole].cells[1].textContent = strokes;
   //Always Score "Ace" if hole-in-one
-  if (strokes === '1') {
-    scoreNumber.textContent = `-${parNum - 1}`;
+  if (strokes === 1) {
+    scoreNumber.textContent = `-${par - 1}`;
     score.textContent = 'Ace';
   }
   //Limits Score to double-par
-  else if (strokesNum >= parNum * 2) {
-    scoreNumber.textContent = parNum * 2;
+  else if (strokes >= par * 2) {
+    scoreNumber.textContent = par * 2;
     score.textContent = 'Double Par';
   }
   //Score depending on hole par
@@ -69,5 +68,6 @@ strokesInput.addEventListener('submit', (e) => {
     scoreNumber.textContent = '+4';
     score.textContent = '+4';
   }
+  //Clears input text value after submit
   document.querySelector('input.input-text').value = '';
 });
