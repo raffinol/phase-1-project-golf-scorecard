@@ -8,7 +8,7 @@ const strokesInput = document.querySelector('form.input-strokes');
 fetch('http://localhost:3000/holes')
   .then((resp) => resp.json())
   .then((holes) => holeSelection(holes));
-
+//shows hole information
 const holeSelection = (holes) => {
   currentHole.addEventListener('change', (e) => {
     const holeSelection = parseInt(e.target.value);
@@ -19,6 +19,15 @@ const holeSelection = (holes) => {
   });
 };
 
+//Start new game button
+const button = document.getElementById('new-game');
+button.addEventListener('click', () => {
+  const scorecardData = document.getElementsByClassName('data');
+  for (const cell of scorecardData) {
+    cell.textContent = '';
+  }
+});
+//Submit event listener
 strokesInput.addEventListener('submit', (e) => {
   e.preventDefault();
   const hole = holeDisplay.textContent;
@@ -26,7 +35,7 @@ strokesInput.addEventListener('submit', (e) => {
   const strokes = parseInt(e.target[0].value);
   let scoreNumber = null;
   let score = null;
-  //Adds strokes to the scorecard, validates if 'hole' and 'strokes' have been input and no hole repetition
+  //Adds strokes to the scorecard, validates if 'hole' and 'strokes' have been input
   if (hole === '') {
     alert('Select a Hole first');
   } else if (Number.isNaN(strokes)) {
@@ -75,22 +84,33 @@ strokesInput.addEventListener('submit', (e) => {
     scoreNumber.textContent = '+4';
     score.textContent = '+4';
   }
-  //Clears input text value after submit
-  document.querySelector('input.input-text').value = '';
 
   //Total Strokes
   let tableLength = 'table tr th'.length;
-  let total = 0;
+  let strokesTotal = 0;
+  let scoreTotal = 0;
   for (let i = 1; i < tableLength - 1; i++) {
-    total += Number(table.rows[i].cells[1].innerText);
+    strokesTotal += Number(table.rows[i].cells[1].innerText);
   }
-  table.rows[10].cells[1].textContent = total;
-});
-//Start new game button
-const button = document.getElementById('new-game');
-button.addEventListener('click', () => {
-  const scorecardData = document.getElementsByClassName('data');
-  for (const cell of scorecardData) {
-    cell.textContent = '';
+  table.rows[10].cells[1].textContent = strokesTotal;
+
+  //Total Score#
+  for (let i = 1; i < tableLength - 1; i++) {
+    scoreTotal += Number(table.rows[i].cells[2].innerText);
   }
+  table.rows[10].cells[2].textContent = scoreTotal;
+
+  //Total Score
+  let writtenScore = table.rows[10].cells[3];
+  let unsignedScore = Math.abs(scoreTotal);
+  if (scoreTotal < 0) {
+    writtenScore.textContent = `${unsignedScore} under par`;
+  } else if (scoreTotal > 0) {
+    writtenScore.textContent = `${unsignedScore} over par`;
+  } else {
+    writtenScore.textContent = 'Par';
+  }
+
+  //Clears input text value after submit
+  document.querySelector('input.input-text').value = '';
 });
