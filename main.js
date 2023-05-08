@@ -19,8 +19,6 @@ const holeSelection = (holes) => {
   });
 };
 
-const clearScorecard = () => {};
-
 strokesInput.addEventListener('submit', (e) => {
   e.preventDefault();
   const hole = holeDisplay.textContent;
@@ -80,9 +78,15 @@ strokesInput.addEventListener('submit', (e) => {
   //Clears input text value after submit
   document.querySelector('input.input-text').value = '';
 
-  //clear all button
+  //Total Strokes
+  let tableLength = 'table tr th'.length;
+  let total = 0;
+  for (let i = 1; i < tableLength - 1; i++) {
+    total += Number(table.rows[i].cells[1].innerText);
+  }
+  table.rows[10].cells[1].textContent = total;
 });
-
+//Start new game button
 const button = document.getElementById('new-game');
 button.addEventListener('click', () => {
   const scorecardData = document.getElementsByClassName('data');
