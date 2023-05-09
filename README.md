@@ -68,8 +68,12 @@ For future versions we expect to add:
 
 ## Authors and acknowledgment
 
+---
+
 Thanks to flatiron school and the instructors for the guidance for this phase-1 bootcamp project.
 
 ## License
+
+---
 
 This project is licensed under the terms of the [MIT](https://choosealicense.com/licenses/mit/) license

@@ -52,7 +52,7 @@ strokesInput.addEventListener('submit', (e) => {
   }
   //Limits Score to double-par
   else if (strokes >= par * 2) {
-    scoreNumber.textContent = par * 2;
+    scoreNumber.textContent = `+${par * 2}`;
     score.textContent = 'Double Par';
   }
   //Score depending on hole par
@@ -98,7 +98,11 @@ strokesInput.addEventListener('submit', (e) => {
   for (let i = 1; i < tableLength - 1; i++) {
     scoreTotal += Number(table.rows[i].cells[2].innerText);
   }
-  table.rows[10].cells[2].textContent = scoreTotal;
+  if (scoreTotal < 0) {
+    table.rows[10].cells[2].textContent = scoreTotal;
+  } else {
+    table.rows[10].cells[2].textContent = `+${scoreTotal}`;
+  }
 
   //Total Score
   let writtenScore = table.rows[10].cells[3];
