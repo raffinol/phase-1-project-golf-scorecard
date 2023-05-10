@@ -18,7 +18,9 @@ table{
 
 #hole-in-one{
     position:absolute; 
-    margin-left: 10px;
+    margin-left: 12px;
+    font-weight: bold;
+    color: green;
  }
 
 table, th, td {

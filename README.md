@@ -32,7 +32,11 @@ install JSON Server globally on your machine, from the terminal:
 
 - Open index.html on your favorite browser (You need to do this in a new terminal window as the first one would be busy running JSON server):
 
-  `explorer.exe index.html`
+  _-In the repo folder-_
+
+  WSL Users: `explorer.exe index.html`
+
+  MacOS users: `open index.html`
 
 - **Enjoy!**
 

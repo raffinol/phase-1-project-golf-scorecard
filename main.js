@@ -87,7 +87,7 @@ strokesInput.addEventListener('submit', (e) => {
     scoreNumber.textContent = '+4';
     score.textContent = '+4';
   }
-  //Validates both current hole and strokes have inputs to start showing totals
+  //Validates both current hole and strokes have inputs before showing totals
   if (hole !== '' && Number.isNaN(strokes) === false) {
     //Total Strokes
     let tableLength = 'table tr th'.length;
