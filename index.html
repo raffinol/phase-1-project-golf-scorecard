@@ -13,7 +13,7 @@
         <h2 class='header'>Hole-in-One Golf Scorecard</h2>
     </header>
     <br />
-    <div id="holeSelectDiv">
+    <div class="info">
         <label for="holes">Select current hole: </label>
          <select name="holes" id="holeSelect">
             <option disabled selected value> Hole # </option>
@@ -29,13 +29,13 @@
          </select>
     </div>
          <br />
-    <div id="displayHoleInfoDiv">
+    <div class="info">
          <p>Hole: <span id="hole-display"></span></p>
          <p>Par: <span id="par-display"></span></p>
          <p>Yards: <span id="yards-display"></span></p>
     </div>
-    <br>
-    <div id="strokesInput">
+          <br />
+    <div id="input" class="info">
         <form class="input-strokes">
             <p>Strokes: </p>
             <input 
@@ -43,7 +43,6 @@
                 name="strokes"
                 value=""
                 class="input-text"
-                style="width: 40px;"
             />
             <input
                 type="submit"
@@ -53,6 +52,7 @@
             />
         </form>
     </div>
+    <div id="hole-in-one"></div>
     <br />
     <div id="tableDiv">
         <table id="table">

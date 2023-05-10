@@ -18,7 +18,6 @@ const holeSelection = (holes) => {
     yardsDisplay.textContent = holeObject.yards;
   });
 };
-
 //Start new game button
 const button = document.getElementById('new-game');
 button.addEventListener('click', () => {
@@ -45,10 +44,14 @@ strokesInput.addEventListener('submit', (e) => {
     score = table.rows[hole].cells[3];
     table.rows[hole].cells[1].textContent = strokes;
   }
-  //Always Score "Ace" if hole-in-one
+  //Always Score "Ace" if hole-in-one, appends message.
   if (strokes === 1) {
     scoreNumber.textContent = `-${par - 1}`;
     score.textContent = 'Ace';
+    let message = document.createElement('p');
+    message.textContent = 'Hole-in-One!';
+    setTimeout(() => message.remove(), 3000);
+    document.getElementById('hole-in-one').appendChild(message);
   }
   //Limits Score to double-par
   else if (strokes >= par * 2) {
@@ -84,37 +87,36 @@ strokesInput.addEventListener('submit', (e) => {
     scoreNumber.textContent = '+4';
     score.textContent = '+4';
   }
-
-  //Total Strokes
-  let tableLength = 'table tr th'.length;
-  let strokesTotal = 0;
-  let scoreTotal = 0;
-  for (let i = 1; i < tableLength - 1; i++) {
-    strokesTotal += Number(table.rows[i].cells[1].innerText);
+  //Validates both current hole and strokes have inputs to start showing totals
+  if (hole !== '' && Number.isNaN(strokes) === false) {
+    //Total Strokes
+    let tableLength = 'table tr th'.length;
+    let strokesTotal = 0;
+    let scoreTotal = 0;
+    for (let i = 1; i < tableLength - 1; i++) {
+      strokesTotal += Number(table.rows[i].cells[1].innerText);
+    }
+    table.rows[10].cells[1].textContent = strokesTotal;
+    //Total Score#
+    for (let i = 1; i < tableLength - 1; i++) {
+      scoreTotal += Number(table.rows[i].cells[2].innerText);
+    }
+    if (scoreTotal < 0) {
+      table.rows[10].cells[2].textContent = scoreTotal;
+    } else {
+      table.rows[10].cells[2].textContent = `+${scoreTotal}`;
+    }
+    //Total Score
+    let writtenScore = table.rows[10].cells[3];
+    let unsignedScore = Math.abs(scoreTotal);
+    if (scoreTotal < 0) {
+      writtenScore.textContent = `${unsignedScore} under par`;
+    } else if (scoreTotal > 0) {
+      writtenScore.textContent = `${unsignedScore} over par`;
+    } else {
+      writtenScore.textContent = 'Par';
+    }
   }
-  table.rows[10].cells[1].textContent = strokesTotal;
-
-  //Total Score#
-  for (let i = 1; i < tableLength - 1; i++) {
-    scoreTotal += Number(table.rows[i].cells[2].innerText);
-  }
-  if (scoreTotal < 0) {
-    table.rows[10].cells[2].textContent = scoreTotal;
-  } else {
-    table.rows[10].cells[2].textContent = `+${scoreTotal}`;
-  }
-
-  //Total Score
-  let writtenScore = table.rows[10].cells[3];
-  let unsignedScore = Math.abs(scoreTotal);
-  if (scoreTotal < 0) {
-    writtenScore.textContent = `${unsignedScore} under par`;
-  } else if (scoreTotal > 0) {
-    writtenScore.textContent = `${unsignedScore} over par`;
-  } else {
-    writtenScore.textContent = 'Par';
-  }
-
   //Clears input text value after submit
   document.querySelector('input.input-text').value = '';
 });
