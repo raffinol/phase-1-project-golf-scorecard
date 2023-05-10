@@ -6,8 +6,6 @@ User will get information for each hole before playing it and then will be able 
 
 ## Requirements
 
----
-
 This SPA uses JSON server to fetch each hole data. Install JSON server if it's not installed already.
 
 install JSON Server globally on your machine, from the terminal:
@@ -15,8 +13,6 @@ install JSON Server globally on your machine, from the terminal:
 `npm install -g json-server`
 
 ## Installation
-
----
 
 - Clone this repo to your desire folder:
 
@@ -42,8 +38,6 @@ install JSON Server globally on your machine, from the terminal:
 
 ## How it works
 
----
-
 1. Select current hole.
 2. Play the hole using the information provided by the app (Hole number, Par, Yards)
 3. Input the amount of strokes it took to complete the hole.
@@ -54,13 +48,9 @@ install JSON Server globally on your machine, from the terminal:
 
 ## Support
 
----
-
 Send an e-mail to [raffinol.dev@gmail.com](mailto:raffinol.dev@gmail.com)
 
 ## Roadmap
-
----
 
 For future versions we expect to add:
 
@@ -72,12 +62,8 @@ For future versions we expect to add:
 
 ## Authors and acknowledgment
 
----
-
 Thanks to flatiron school and the instructors for the guidance for this phase-1 bootcamp project.
 
 ## License
-
----
 
 This project is licensed under the terms of the [MIT](https://choosealicense.com/licenses/mit/) license
