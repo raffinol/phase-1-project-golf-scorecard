@@ -10,52 +10,57 @@
 </head>
 <body>
     <header>
-        <h2 class='header'>Hole-in-One Golf Scorecard</h2>
+        <h1 class='header'>Hole-in-One Golf Scorecard</h1>
     </header>
+    <div class="info">
+      <br />
+      <div class="hole-data">
+          <label for="holes">Select current hole: </label>
+          <select name="holes" id="holeSelect">
+              <option disabled selected value> Hole # </option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>            
+          </select>
+      </div>
+        <br />
+      <div class="hole-data">
+          <p>Hole: <span id="hole-display"></span></p>
+          <p>Par: <span id="par-display"></span></p>
+          <p>Yards: <span id="yards-display"></span></p>
+      </div>
+        <br />
+      <div id="input" class="hole-data">
+          <form class="input-strokes">
+              <p>Strokes: </p>
+              <input 
+                  type="number"
+                  min="1"
+                  name="strokes"
+                  value=""
+                  class="input-text"
+              />
+              <input
+                  type="submit"
+                  name="submit"
+                  value="Submit"
+                  class="button side"
+                  id="submit"
+              />    
+              <div class= "side" id="hole-in-one"></div>   
+          </form>      
+      </div>      
+      <br /> 
+    </div>
+  <br />
+  <div id="tableDiv">
     <br />
-    <div class="info">
-        <label for="holes">Select current hole: </label>
-         <select name="holes" id="holeSelect">
-            <option disabled selected value> Hole # </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>            
-         </select>
-    </div>
-         <br />
-    <div class="info">
-         <p>Hole: <span id="hole-display"></span></p>
-         <p>Par: <span id="par-display"></span></p>
-         <p>Yards: <span id="yards-display"></span></p>
-    </div>
-          <br />
-    <div id="input" class="info">
-        <form class="input-strokes">
-            <p>Strokes: </p>
-            <input 
-                type="number"
-                min="1"
-                name="strokes"
-                value=""
-                class="input-text"
-            />
-            <input
-                type="submit"
-                name="submit"
-                value="Submit"
-                class="submit"
-            />
-        </form>
-    </div>
-    <div id="hole-in-one"></div>
-    <br /> <br /> <br />
-    <div id="tableDiv">
         <table id="table">
             <caption>
                 SCORECARD
@@ -127,9 +132,9 @@
                 <td class="data total"></td>
               </tr>
           </table>
-    </div>
     <br /><br />
-    <button id='new-game' type="button">Start new game</button>
-
+    <button id='new-game' class="button" type="button">Start new game</button>
+    <br /><br />
+    </div>
 </body>
 </html>

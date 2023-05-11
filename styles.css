@@ -1,31 +1,48 @@
 body {
     background-color: #F0F8FF;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Amazon Ember",sans-serif;
 }
 
 .header {
     text-align:center;
     color: #002D62;
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
 }
 
 .info{
-    margin-left:20px;
+
+    background-color: white;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
 }
+
+.hole-data{
+margin-left:20px;
+}
+
+.side{
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+    padding: 0px;
+}
+
+#tableDiv{
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+}
+
 table{
     margin-left: auto;
     margin-right: auto;
+    background-color: #B9D9EB;
 }
-
-#hole-in-one{
-    position:absolute; 
-    margin-left: 12px;
-    font-weight: bold;
-    color: green;
- }
 
 table, th, td {
     border: 1px solid black;
-    background-color: #89CFF0;
     border-collapse: collapse;    
 }
 
@@ -44,18 +61,26 @@ table tr th:nth-child(4){
      width: 170px;
 }
 
+#hole-in-one{
+    position:absolute; 
+    font-weight: bold;
+    color: #00CCFF;
+    font-weight: bold;
+    font-family : inherit;
+ }
+
 caption {
     color: #002D62;
     font-weight: bold; 
 }
-
 
 .input-text {
     width: 40px;
 }
 
 input{
-    font-family : inherit;
+    position: relative;
+    font-family: inherit;
     font-size: 1em;
 }
 
@@ -65,9 +90,36 @@ input{
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    font-family : inherit;
-    font-size: 1em;
+    width: 150px;
 }
+
+#submit{
+    width: 90px;
+    margin: 10px;
+}
+
+.button {
+    font-family : inherit;
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 29px;
+    padding: 0 10px 0 11px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.button:hover {
+    background-color: #f7fafa;
+  }
 
 select{
     font-family : inherit;
