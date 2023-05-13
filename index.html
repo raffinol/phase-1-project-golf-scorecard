@@ -1,140 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Golf Scorecard</title>
-    <link href="styles.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet" />
     <script src="main.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1 class='header'>Hole-in-One Golf Scorecard</h1>
+      <h1 class="header">Hole-in-One Golf Scorecard</h1>
     </header>
     <div class="info">
       <br />
       <div class="hole-data">
-          <label for="holes">Select current hole: </label>
-          <select name="holes" id="holeSelect">
-              <option disabled selected value> Hole # </option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>            
-          </select>
+        <label for="holes">Select current hole: </label>
+        <select name="holes" id="holeSelect">
+          <option disabled selected value>Hole #</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
       </div>
-        <br />
+      <br />
       <div class="hole-data">
-          <p>Hole: <span id="hole-display"></span></p>
-          <p>Par: <span id="par-display"></span></p>
-          <p>Yards: <span id="yards-display"></span></p>
+        <p>Hole: <span id="hole-display"></span></p>
+        <p>Par: <span id="par-display"></span></p>
+        <p>Yards: <span id="yards-display"></span></p>
       </div>
-        <br />
+      <br />
       <div id="input" class="hole-data">
-          <form class="input-strokes">
-              <p>Strokes: </p>
-              <input 
-                  type="number"
-                  min="1"
-                  name="strokes"
-                  value=""
-                  class="input-text"
-              />
-              <input
-                  type="submit"
-                  name="submit"
-                  value="Submit"
-                  class="button side"
-                  id="submit"
-              />    
-              <div class= "side" id="hole-in-one"></div>   
-          </form>      
-      </div>      
-      <br /> 
+        <form class="input-strokes">
+          <p>Strokes:</p>
+          <input
+            type="number"
+            min="1"
+            name="strokes"
+            value=""
+            class="input-text"
+          />
+          <input
+            type="submit"
+            name="submit"
+            value="Submit"
+            class="button side"
+            id="submit"
+          />
+          <div class="side" id="hole-in-one"></div>
+        </form>
+      </div>
+      <br />
     </div>
-  <br />
-  <div id="tableDiv">
     <br />
-        <table id="table">
-            <caption>
-                SCORECARD
-              </caption>
-            <tr>
-                <th>Hole #</th>
-                <th>Strokes</th>
-                <th>Score #</th>
-                <th>Score</th>                
-            </tr>
-            <tr>
-              <td>1</td>
-              <td class="data"></td>
-              <td class="data"></td> 
-              <td class="data"></td>              
-            </tr>
-            <tr>
-              <td>2</td>
-              <td class="data"></td>
-              <td class="data"></td>
-              <td class="data"></td>  
-            </tr>
-            <tr>
-              <td>3</td>
-              <td class="data"></td>
-              <td class="data"></td>
-              <td class="data"></td>  
-            </tr>
-            <tr>
-              <td>4</td>
-              <td class="data"></td>
-              <td class="data"></td>
-              <td class="data"></td>  
-            </tr>
-            <tr>
-              <td>5</td>
-              <td class="data"></td>
-              <td class="data"></td>
-              <td class="data"></td>  
-            </tr>
-            <tr>
-              <td>6</td>
-              <td class="data"></td>
-              <td class="data"></td>
-              <td class="data"></td>  
-            </tr>
-            <tr>
-              <td>7</td>
-              <td class="data"></td>
-              <td class="data"></td>
-              <td class="data"></td>  
-            </tr>
-            <tr>
-              <td>8</td>
-              <td class="data"></td>
-              <td class="data"></td>
-              <td class="data"></td>  
-            </tr>
-            <tr>
-              <td>9</td>
-              <td class="data"></td>
-              <td class="data"></td>
-              <td class="data"></td>  
-            </tr>
-            <tr>
-                <td class="total">Total</td>
-                <td class="data total"></td>
-                <td class="data total"></td>
-                <td class="data total"></td>
-              </tr>
-          </table>
-    <br /><br />
-    <button id='new-game' class="button" type="button">Start new game</button>
-    <br /><br />
+    <div id="tableDiv">
+      <br />
+      <table id="table">
+        <caption>
+          SCORECARD
+        </caption>
+        <tr>
+          <th>Hole #</th>
+          <th>Strokes</th>
+          <th>Score #</th>
+          <th>Score</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="data"></td>
+          <td class="data"></td>
+          <td class="data"></td>
+        </tr>
+        <tr>
+          <td class="total">Total</td>
+          <td class="data total"></td>
+          <td class="data total"></td>
+          <td class="data total"></td>
+        </tr>
+      </table>
+      <br /><br />
+      <button id="new-game" class="button" type="button">Start new game</button>
+      <br /><br />
     </div>
-</body>
+  </body>
 </html>
